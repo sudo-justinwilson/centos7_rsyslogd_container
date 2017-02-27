@@ -1,0 +1,12 @@
+[Unit]
+Description=rsyslogd/Centos7 container
+Requires=docker-latest.service
+After=docker-latest.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a rsyslog_entrypoint_20170227
+ExecStop=/usr/bin/docker stop -t 2 rsyslog_entrypoint_20170227
+
+[Install]
+WantedBy=default.target
